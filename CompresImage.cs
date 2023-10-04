@@ -45,11 +45,10 @@ namespace practice
                    
                     var videoStream = mediaInfo.VideoStreams.First();
                     var targetFileSizeInBytes = 8 * 1024 * 1024; // 8MB in bytes
+                    
+                    long videoDurationInSeconds = Convert.ToInt64(mediaInfo.Duration.TotalSeconds); // Total Duration of Video
 
-                    // Assuming you know the duration of the video in seconds (you may need to retrieve this from mediaInfo)
-                    long videoDurationInSeconds = Convert.ToInt64(mediaInfo.Duration.TotalSeconds); // Replace with the actual duration
-
-                    // Calculate the target bitrate in bits per second (bps)
+                    // Calculate the target bitrate in bits per second (BPS)
                     int targetBitrateInBps = (int)(targetFileSizeInBytes * 8 / videoDurationInSeconds);
 
                     videoStream
@@ -112,11 +111,11 @@ namespace practice
         //                string inputFilePath = "F:\\RAHUL\\" + postedFile.FileName;
         //                string outputFilePath = "F:\\RAHUL\\NewVid\\" + postedFile.FileName;
 
-        //                // Save the uploaded video to the server
+                      
         //                //  postedFile.SaveAs(inputFilePath);
         //                //double targetFileSizeMB = 10.0;
 
-        //                //// Calculate the target bitrate based on the desired file size
+        //                //// Calculate the target bitrate based on the file size
         //                //int targetBitrateKbps = (int)(targetFileSizeMB * 8192);
 
 
@@ -159,21 +158,11 @@ namespace practice
         //                {
         //                    result = ex.ToString();
         //                }
-        //                Console.WriteLine(result);
-
-
-        //                // You can return the compressed video for download or display a link to it
-        //                //string file = Directory.File(outputFilePath, "video/mp4");
+        //                Console.WriteLine(result);      
         //            }
         //        }
         //    }
-
-        //    // Handle the case when no file was uploaded
-        //    //ModelState.AddModelError("videoFile", "Please choose a video file.");       
-
-
         //    Console.WriteLine("ok");
-
         //    Console.ReadLine();
         //}
 //    }
